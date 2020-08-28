@@ -2,19 +2,22 @@ package edu.plohoy.springbootdemo.api.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
 
     public User() {
     }
 
-    public User(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    @JsonProperty("number")
+//    @JsonProperty("number")
     public Long getId() {
         return id;
     }
