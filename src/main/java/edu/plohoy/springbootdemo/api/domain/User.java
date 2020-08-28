@@ -1,5 +1,7 @@
 package edu.plohoy.springbootdemo.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
     private Long id;
     private String name;
@@ -12,6 +14,7 @@ public class User {
         this.name = name;
     }
 
+    @JsonProperty("number")
     public Long getId() {
         return id;
     }

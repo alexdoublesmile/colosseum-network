@@ -1,6 +1,6 @@
 package edu.plohoy.springbootdemo.impl.controller.rest;
 
-import edu.plohoy.springbootdemo.api.domain.UserDTO;
+import edu.plohoy.springbootdemo.api.domain.User;
 import edu.plohoy.springbootdemo.api.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +14,8 @@ public class UserController {
 
     @GetMapping({"/user_list", "users" +
             ""})
-    public List<UserDTO> getUsers() {
-        return Collections.singletonList(new UserDTO() {
+    public List<User> getUsers() {
+        return Collections.singletonList(new User() {
             {
             setId(1L);
             setName("Ivan");
