@@ -16,4 +16,10 @@ public class GreetingController {
         model.put("name", name);
         return "greeting";
     }
+
+    @GetMapping
+    public String getMain(Map<String, Object> model) {
+        model.put("username", "Alexandr");
+        return "index";
+    }
 }
