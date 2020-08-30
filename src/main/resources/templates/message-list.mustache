@@ -16,6 +16,10 @@
         </form>
     </div>
     <div>Message List:</div>
+        <form method="post" action="filter">
+            <input type="text" name="filter" placeholder="Add filter.."/>
+            <button type="submit">Find</button>
+        </form>
         {{#messages}}
             <div>
                 <b>{{id}}</b>

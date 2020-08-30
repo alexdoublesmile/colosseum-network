@@ -18,7 +18,7 @@ public class MessageController {
     private MessageService service;
 
     @GetMapping("/message-list")
-    public String getMessages(Map<String, Object> model) {
+    public String viewAll(Map<String, Object> model) {
         List<Message> messages = service.findAll();
 
         model.put("messages", messages);
@@ -26,7 +26,7 @@ public class MessageController {
     }
 
     @PostMapping("/message-list")
-    public String sendMessage(
+    public String add(
             @RequestParam String text,
             @RequestParam String tag,
             Map<String, Object> model) {
@@ -36,6 +36,22 @@ public class MessageController {
 
         List<Message> messages = service.findAll();
         model.put("messages", messages);
+        return "message-list";
+    }
+
+    @PostMapping("filter")
+    public String filter(
+            @RequestParam String filter,
+            Map<String, Object> model) {
+
+        List<Message> filteredMessages;
+        if (filter != null && !filter.isEmpty()) {
+            filteredMessages = service.findByTag(filter);
+        } else {
+            filteredMessages = service.findAll();
+        }
+
+        model.put("messages", filteredMessages);
         return "message-list";
     }
 }
