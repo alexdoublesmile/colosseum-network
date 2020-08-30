@@ -1,29 +1,25 @@
 package edu.plohoy.spitter.impl.controller;
 
-import edu.plohoy.spitter.api.dao.MessageRepository;
 import edu.plohoy.spitter.api.domain.Message;
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.plohoy.spitter.api.service.MessageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 public class MessageController {
 
-    private MessageRepository dao;
-
-    @Autowired
-    public void setDao(MessageRepository dao) {
-        this.dao = dao;
-    }
+    @Resource(name = "message service")
+    private MessageService service;
 
     @GetMapping("/message-list")
     public String getMessages(Map<String, Object> model) {
-        Iterable<Message> messages = dao.findAll();
+        List<Message> messages = service.findAll();
 
         model.put("messages", messages);
         return "message-list";
@@ -36,9 +32,9 @@ public class MessageController {
             Map<String, Object> model) {
 
         Message message = new Message(text, tag);
-        dao.save(message);
+        service.save(message);
 
-        Iterable<Message> messages = dao.findAll();
+        List<Message> messages = service.findAll();
         model.put("messages", messages);
         return "message-list";
     }
