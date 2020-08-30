@@ -17,7 +17,7 @@ public class MessageController {
     @Resource(name = "message service")
     private MessageService service;
 
-    @GetMapping("/message-list")
+    @GetMapping("messages")
     public String viewAll(Map<String, Object> model) {
         List<Message> messages = service.findAll();
 
@@ -25,7 +25,7 @@ public class MessageController {
         return "message-list";
     }
 
-    @PostMapping("/message-list")
+    @PostMapping("messages")
     public String add(
             @RequestParam String text,
             @RequestParam String tag,
