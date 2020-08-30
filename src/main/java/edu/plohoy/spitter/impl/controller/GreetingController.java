@@ -1,4 +1,4 @@
-package edu.plohoy.springbootdemo.impl.controller;
+package edu.plohoy.spitter.impl.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

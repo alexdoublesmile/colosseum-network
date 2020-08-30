@@ -1,4 +1,4 @@
-package edu.plohoy.springbootdemo;
+package edu.plohoy.spitter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
