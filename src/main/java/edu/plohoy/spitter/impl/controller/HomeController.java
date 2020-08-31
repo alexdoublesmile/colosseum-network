@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String greeting(
-            @RequestParam(name = "name", required = false, defaultValue = "World")
+            @RequestParam(name = "name", required = false, defaultValue = "User")
                     String name, Map<String, Object> model) {
         model.put("name", name);
         return "home";
