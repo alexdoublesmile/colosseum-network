@@ -7,19 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class HomeController {
 
-    @GetMapping("greeting")
-    public String getGreeting(
+    @GetMapping("/")
+    public String greeting(
             @RequestParam(name = "name", required = false, defaultValue = "World")
                     String name, Map<String, Object> model) {
         model.put("name", name);
-        return "greeting";
-    }
-
-    @GetMapping
-    public String getMain(Map<String, Object> model) {
-        model.put("username", "Alexandr");
-        return "index";
+        return "home";
     }
 }
