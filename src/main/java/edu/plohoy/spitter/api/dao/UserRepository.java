@@ -4,5 +4,5 @@ import edu.plohoy.spitter.api.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    User getUserByUserName(String name);
+    User findByUsername(String username);
 }
