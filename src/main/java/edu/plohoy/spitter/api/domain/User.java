@@ -1,7 +1,6 @@
 package edu.plohoy.spitter.api.domain;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
