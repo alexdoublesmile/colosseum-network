@@ -1,4 +1,4 @@
-package edu.plohoy.spitter.impl.controller;
+package edu.plohoy.spitter.api.controller;
 
 import edu.plohoy.spitter.api.domain.Message;
 import edu.plohoy.spitter.api.service.MessageService;
