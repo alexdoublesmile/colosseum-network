@@ -18,7 +18,9 @@ public class RegistrationController {
     private UserService service;
 
     @GetMapping("/registration")
-    public String getRegistrationPage() {
+    public String getRegistrationPage(Map<String, Object> model) {
+
+        model.put("message", "");
         return "registration";
     }
 
@@ -28,7 +30,7 @@ public class RegistrationController {
 
         if(userFromDB != null) {
             model.put("message", "User is exists!");
-            return "/registration";
+            return "registration";
         }
 
         user.setActive(true);

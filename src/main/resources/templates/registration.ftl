@@ -4,5 +4,5 @@
 <@c.page>
     Registration
     ${message}
-    <@l.login "/registrtion" />
+    <@l.login "/registration" />
 </@c.page>

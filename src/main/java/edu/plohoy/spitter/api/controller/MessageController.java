@@ -5,6 +5,7 @@ import edu.plohoy.spitter.api.domain.User;
 import edu.plohoy.spitter.api.service.MessageService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,15 +20,22 @@ public class MessageController {
     @Resource(name = "message service")
     private MessageService service;
 
-    @GetMapping("messages")
-    public String viewAll(Map<String, Object> model) {
-        List<Message> messages = service.findAll();
+    @GetMapping("/main")
+    public String viewAll(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+        List<Message> messages;
 
-        model.put("messages", messages);
+        if (filter != null && !filter.isEmpty()) {
+            messages = service.findByTag(filter);
+        } else {
+            messages = service.findAll();
+        }
+
+        model.addAttribute("messages", messages);
+        model.addAttribute("filter", filter);
         return "main";
     }
 
-    @PostMapping("messages")
+    @PostMapping("/main")
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
@@ -39,22 +47,7 @@ public class MessageController {
 
         List<Message> messages = service.findAll();
         model.put("messages", messages);
-        return "main";
-    }
-
-    @PostMapping("filter")
-    public String filter(
-            @RequestParam String filter,
-            Map<String, Object> model) {
-
-        List<Message> filteredMessages;
-        if (filter != null && !filter.isEmpty()) {
-            filteredMessages = service.findByTag(filter);
-        } else {
-            filteredMessages = service.findAll();
-        }
-
-        model.put("messages", filteredMessages);
+        model.put("filter", "");
         return "main";
     }
 }

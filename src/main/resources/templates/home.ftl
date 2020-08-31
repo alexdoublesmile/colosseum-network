@@ -2,5 +2,5 @@
 
 <@c.page>
     <div>Hello, ${name}!</div>
-    <a href="/messages">Show Message List</a>
+    <a href="/main">Show Message List</a>
 </@c.page>

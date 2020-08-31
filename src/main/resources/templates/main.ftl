@@ -9,7 +9,7 @@
     <br/>
     <div>
         Add any Message
-        <form method="post" action="messages">
+        <form method="post" action="/main">
             <input type="text" name="text" placeholder="Enter your message.."/>
             <input type="text" name="tag" placeholder="Tag"/>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -18,9 +18,8 @@
     </div>
     <br/>
     <div>Message List:</div>
-        <form method="post" action="filter">
-            <input type="text" name="filter" placeholder="Add filter.."/>
-            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        <form method="get" action="/main">
+            <input type="text" name="filter" value="${filter}"  placeholder="Add filter.."/>
             <button type="submit">Find</button>
         </form>
         <#list messages as message>
