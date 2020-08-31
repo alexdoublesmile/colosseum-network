@@ -24,7 +24,7 @@ public class MessageController {
         List<Message> messages = service.findAll();
 
         model.put("messages", messages);
-        return "message-list";
+        return "main";
     }
 
     @PostMapping("messages")
@@ -39,7 +39,7 @@ public class MessageController {
 
         List<Message> messages = service.findAll();
         model.put("messages", messages);
-        return "message-list";
+        return "main";
     }
 
     @PostMapping("filter")
@@ -55,6 +55,6 @@ public class MessageController {
         }
 
         model.put("messages", filteredMessages);
-        return "message-list";
+        return "main";
     }
 }
