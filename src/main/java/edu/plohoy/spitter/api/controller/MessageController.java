@@ -1,7 +1,9 @@
 package edu.plohoy.spitter.api.controller;
 
 import edu.plohoy.spitter.api.domain.Message;
+import edu.plohoy.spitter.api.domain.User;
 import edu.plohoy.spitter.api.service.MessageService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,11 +29,12 @@ public class MessageController {
 
     @PostMapping("messages")
     public String add(
+            @AuthenticationPrincipal User user,
             @RequestParam String text,
             @RequestParam String tag,
             Map<String, Object> model) {
 
-        Message message = new Message(text, tag);
+        Message message = new Message(text, tag, user);
         service.save(message);
 
         List<Message> messages = service.findAll();
