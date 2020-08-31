@@ -4,6 +4,8 @@ import edu.plohoy.spitter.api.dao.UserRepository;
 import edu.plohoy.spitter.api.domain.User;
 import edu.plohoy.spitter.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service("user service")
@@ -20,5 +22,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
         dao.save(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return dao.findByUsername(username);
     }
 }
