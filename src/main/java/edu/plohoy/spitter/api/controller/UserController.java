@@ -3,6 +3,7 @@ package edu.plohoy.spitter.api.controller;
 import edu.plohoy.spitter.api.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +14,9 @@ public class UserController {
     private UserRepository repo;
 
     @GetMapping
-    public String userList() {
+    public String userList(Model model) {
+        model.addAttribute("users", repo.findAll());
+        
         return "userList";
     }
 }
