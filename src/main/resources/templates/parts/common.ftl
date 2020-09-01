@@ -3,7 +3,7 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Sweater</title>
+        <title>Spitter</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
