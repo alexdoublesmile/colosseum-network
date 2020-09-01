@@ -3,21 +3,20 @@ package edu.plohoy.spitter.api.controller;
 import edu.plohoy.spitter.api.dao.UserRepository;
 import edu.plohoy.spitter.api.domain.Role;
 import edu.plohoy.spitter.api.domain.User;
-import edu.plohoy.spitter.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
     @Autowired
     private UserRepository repo;
