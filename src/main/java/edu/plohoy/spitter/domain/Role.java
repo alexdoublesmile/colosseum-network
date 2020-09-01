@@ -1,4 +1,4 @@
-package edu.plohoy.spitter.api.domain;
+package edu.plohoy.spitter.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

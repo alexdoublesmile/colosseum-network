@@ -1,39 +1,38 @@
-package edu.plohoy.spitter.api.controller;
+package edu.plohoy.spitter.controller;
 
-import edu.plohoy.spitter.api.domain.Role;
-import edu.plohoy.spitter.api.domain.User;
-import edu.plohoy.spitter.api.service.UserService;
+import edu.plohoy.spitter.domain.Role;
+import edu.plohoy.spitter.domain.User;
+import edu.plohoy.spitter.repos.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Map;
 
 @Controller
 public class RegistrationController {
-
-    @Resource(name="user service")
-    private UserService service;
+    @Autowired
+    private UserRepo userRepo;
 
     @GetMapping("/registration")
-    public String getRegistrationPage(Map<String, Object> model) {
+    public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
     public String addUser(User user, Map<String, Object> model) {
-        User userFromDB = service.findByUsername(user.getUsername());
+        User userFromDb = userRepo.findByUsername(user.getUsername());
 
-        if(userFromDB != null) {
-            model.put("message", "User is exists!");
+        if (userFromDb != null) {
+            model.put("message", "User exists!");
             return "registration";
         }
 
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        service.save(user);
+        userRepo.save(user);
 
         return "redirect:/login";
     }

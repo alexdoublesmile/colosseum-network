@@ -1,8 +1,8 @@
-package edu.plohoy.spitter.api.controller;
+package edu.plohoy.spitter.controller;
 
-import edu.plohoy.spitter.api.dao.UserRepository;
-import edu.plohoy.spitter.api.domain.Role;
-import edu.plohoy.spitter.api.domain.User;
+import edu.plohoy.spitter.domain.Role;
+import edu.plohoy.spitter.domain.User;
+import edu.plohoy.spitter.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 @PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
     @Autowired
-    private UserRepository repo;
+    private UserRepo userRepo;
 
     @GetMapping
     public String userList(Model model) {
-        model.addAttribute("users", repo.findAll());
+        model.addAttribute("users", userRepo.findAll());
 
         return "userList";
     }
@@ -37,17 +37,18 @@ public class UserController {
     }
 
     @PostMapping
-    public String saveUser(
-            @RequestParam("userId") User user,
+    public String userSave(
             @RequestParam String username,
-            @RequestParam Map<String, String> form) {
-
+            @RequestParam Map<String, String> form,
+            @RequestParam("userId") User user
+    ) {
         user.setUsername(username);
-        user.getRoles().clear();
 
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());
+
+        user.getRoles().clear();
 
         for (String key : form.keySet()) {
             if (roles.contains(key)) {
@@ -55,7 +56,8 @@ public class UserController {
             }
         }
 
-        repo.save(user);
+        userRepo.save(user);
+
         return "redirect:/user";
     }
 }
