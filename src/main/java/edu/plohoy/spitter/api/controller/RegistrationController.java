@@ -19,8 +19,6 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String getRegistrationPage(Map<String, Object> model) {
-
-        model.put("message", "");
         return "registration";
     }
 

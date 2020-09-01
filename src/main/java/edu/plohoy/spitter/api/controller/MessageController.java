@@ -47,7 +47,6 @@ public class MessageController {
 
         List<Message> messages = service.findAll();
         model.put("messages", messages);
-        model.put("filter", "");
         return "main";
     }
 }
