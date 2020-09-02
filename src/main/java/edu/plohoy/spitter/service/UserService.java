@@ -31,7 +31,7 @@ public class UserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User was not found!");
         }
-        
+
         return user;
     }
 
