@@ -1,11 +1,11 @@
 package edu.plohoy.spitter.repos;
 
 import edu.plohoy.spitter.domain.Message;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface MessageRepo extends JpaRepository<Message, Long> {
+public interface MessageRepo extends CrudRepository<Message, Long> {
 
     List<Message> findByTag(String tag);
 
