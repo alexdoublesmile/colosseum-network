@@ -3,6 +3,7 @@ package edu.plohoy.spitter.controller;
 import edu.plohoy.spitter.domain.Message;
 import edu.plohoy.spitter.domain.User;
 import edu.plohoy.spitter.repos.MessageRepo;
+import edu.plohoy.spitter.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -63,14 +64,7 @@ public class MainController {
         message.setAuthor(user);
 
         if (bindingResult.hasErrors()) {
-            Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
-                    fieldError ->
-                            fieldError.getField() + "Error",
-                            FieldError::getDefaultMessage
-            );
-
-            Map<String, String> errorsMap = bindingResult.getFieldErrors().stream().collect(collector);
-            model.mergeAttributes(errorsMap);
+            model.mergeAttributes(ControllerUtils.getErrors(bindingResult));
 
         } else {
             if (file != null && !file.getOriginalFilename().isEmpty()) {
