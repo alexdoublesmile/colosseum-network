@@ -1,5 +1,3 @@
-
-
 create table message (
   id int8 not null,
   filename varchar(255),
