@@ -36,6 +36,13 @@ public class UserService implements UserDetailsService {
         user.setRoles(Collections.singleton(Role.USER));
         user.setActivationCode(UUID.randomUUID().toString());
 
+        userRepo.save(user);
+
+        sendActivationCode(user);
+        return true;
+    }
+
+    private void sendActivationCode(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format(
                     "Hello, %s! \n" +
@@ -44,8 +51,6 @@ public class UserService implements UserDetailsService {
             );
             mailSender.send(user.getEmail(), "Activation Code", message);
         }
-        userRepo.save(user);
-        return true;
     }
 
     public boolean activateUser(String code) {
@@ -99,5 +104,10 @@ public class UserService implements UserDetailsService {
         }
 
         userRepo.save(user);
+        
+        if (isEmailChanged) {
+            sendActivationCode(user);
+        }
+
     }
 }
