@@ -33,7 +33,7 @@ public class RegistrationController {
 
     @GetMapping("/activate/{code}")
     public String activate(Model model, @PathVariable String code) {
-        boolean isActivated = service.findByActivationCode(code);
+        boolean isActivated = service.activateUser(code);
 
         if (isActivated) {
             model.addAttribute("message", "User was successfully activated");

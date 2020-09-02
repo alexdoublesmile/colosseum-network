@@ -48,7 +48,7 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
-    public boolean findByActivationCode(String code) {
+    public boolean activateUser(String code) {
         User user = userRepo.findByActivationCode(code);
         if (user == null) {
             return false;
