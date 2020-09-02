@@ -81,4 +81,8 @@ public class UserService implements UserDetailsService {
 
         userRepo.save(user);
     }
+
+    public void updateUser(User user, String password, String email) {
+        
+    }
 }
