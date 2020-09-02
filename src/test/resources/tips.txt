@@ -1,0 +1,7 @@
+C:\PostgreSQL\bin>psql.exe" -p 5432 -U postgres
+
+drop database spitter;create database spitter
+
+\c spitter
+
+select password from usr;
