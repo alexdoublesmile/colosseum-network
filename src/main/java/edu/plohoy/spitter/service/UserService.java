@@ -26,6 +26,10 @@ public class UserService implements UserDetailsService {
         return userRepo.findByUsername(username);
     }
 
+    public List<User> findAll() {
+        return userRepo.findAll();
+    }
+
     public boolean addUser(User user) {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
@@ -40,33 +44,6 @@ public class UserService implements UserDetailsService {
 
         sendActivationCode(user);
         return true;
-    }
-
-    private void sendActivationCode(User user) {
-        if (!StringUtils.isEmpty(user.getEmail())) {
-            String message = String.format(
-                    "Hello, %s! \n" +
-                            "Welcome to Spitter. Please, visit next link: http://localhost:8080/activate/%s",
-                    user.getUsername(), user.getActivationCode()
-            );
-            mailSender.send(user.getEmail(), "Activation Code", message);
-        }
-    }
-
-    public boolean activateUser(String code) {
-        User user = userRepo.findByActivationCode(code);
-        if (user == null) {
-            return false;
-        }
-
-        user.setActivationCode(null);
-        userRepo.save(user);
-
-        return true;
-    }
-
-    public List<User> findAll() {
-        return userRepo.findAll();
     }
 
     public void saveUser(User user, String username, Map<String, String> form) {
@@ -104,10 +81,33 @@ public class UserService implements UserDetailsService {
         }
 
         userRepo.save(user);
-        
+
         if (isEmailChanged) {
             sendActivationCode(user);
         }
 
+    }
+
+    private void sendActivationCode(User user) {
+        if (!StringUtils.isEmpty(user.getEmail())) {
+            String message = String.format(
+                    "Hello, %s! \n" +
+                            "Welcome to Spitter. Please, visit next link: http://localhost:8080/activate/%s",
+                    user.getUsername(), user.getActivationCode()
+            );
+            mailSender.send(user.getEmail(), "Activation Code", message);
+        }
+    }
+
+    public boolean activateUser(String code) {
+        User user = userRepo.findByActivationCode(code);
+        if (user == null) {
+            return false;
+        }
+
+        user.setActivationCode(null);
+        userRepo.save(user);
+
+        return true;
     }
 }
