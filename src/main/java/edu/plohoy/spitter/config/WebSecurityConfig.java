@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public RestTemplate restTemplate() {
         return  new RestTemplate();
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
