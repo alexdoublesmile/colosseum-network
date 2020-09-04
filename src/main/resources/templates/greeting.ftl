@@ -2,5 +2,5 @@
 
 <@c.page>
     <h5>Hello, guest</h5>
-    <div>This is a simple Twitter clone</div>
+    <div>This is The Colosseum</div>
 </@c.page>

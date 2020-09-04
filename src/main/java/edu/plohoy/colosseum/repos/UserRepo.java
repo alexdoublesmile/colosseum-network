@@ -1,6 +1,6 @@
-package edu.plohoy.spitter.repos;
+package edu.plohoy.colosseum.repos;
 
-import edu.plohoy.spitter.domain.User;
+import edu.plohoy.colosseum.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Long> {

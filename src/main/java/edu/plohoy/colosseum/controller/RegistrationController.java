@@ -1,8 +1,8 @@
-package edu.plohoy.spitter.controller;
+package edu.plohoy.colosseum.controller;
 
-import edu.plohoy.spitter.domain.User;
-import edu.plohoy.spitter.service.UserService;
-import edu.plohoy.spitter.utils.ControllerUtils;
+import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.service.UserService;
+import edu.plohoy.colosseum.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @Controller
 public class RegistrationController {

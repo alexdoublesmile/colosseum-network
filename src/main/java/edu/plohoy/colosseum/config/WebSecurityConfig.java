@@ -1,6 +1,6 @@
-package edu.plohoy.spitter.config;
+package edu.plohoy.colosseum.config;
 
-import edu.plohoy.spitter.service.UserService;
+import edu.plohoy.colosseum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

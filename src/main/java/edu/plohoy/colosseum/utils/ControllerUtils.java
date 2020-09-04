@@ -1,4 +1,4 @@
-package edu.plohoy.spitter.utils;
+package edu.plohoy.colosseum.utils;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

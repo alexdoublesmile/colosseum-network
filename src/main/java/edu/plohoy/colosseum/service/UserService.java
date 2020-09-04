@@ -1,8 +1,8 @@
-package edu.plohoy.spitter.service;
+package edu.plohoy.colosseum.service;
 
-import edu.plohoy.spitter.domain.Role;
-import edu.plohoy.spitter.domain.User;
-import edu.plohoy.spitter.repos.UserRepo;
+import edu.plohoy.colosseum.domain.Role;
+import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package edu.plohoy.spitter.domain;
+package edu.plohoy.colosseum.domain;
 
 import org.hibernate.validator.constraints.Length;
 

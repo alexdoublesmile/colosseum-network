@@ -1,4 +1,4 @@
-package edu.plohoy.spitter.domain;
+package edu.plohoy.colosseum.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

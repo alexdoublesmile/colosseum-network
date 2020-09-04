@@ -1,4 +1,4 @@
-package edu.plohoy.spitter;
+package edu.plohoy.colosseum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

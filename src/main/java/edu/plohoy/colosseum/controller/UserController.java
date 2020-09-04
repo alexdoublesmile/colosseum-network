@@ -1,8 +1,8 @@
-package edu.plohoy.spitter.controller;
+package edu.plohoy.colosseum.controller;
 
-import edu.plohoy.spitter.domain.Role;
-import edu.plohoy.spitter.domain.User;
-import edu.plohoy.spitter.service.UserService;
+import edu.plohoy.colosseum.domain.Role;
+import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

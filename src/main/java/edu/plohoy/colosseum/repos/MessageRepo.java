@@ -1,6 +1,6 @@
-package edu.plohoy.spitter.repos;
+package edu.plohoy.colosseum.repos;
 
-import edu.plohoy.spitter.domain.Message;
+import edu.plohoy.colosseum.domain.Message;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

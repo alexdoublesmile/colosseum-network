@@ -1,9 +1,9 @@
-package edu.plohoy.spitter.controller;
+package edu.plohoy.colosseum.controller;
 
-import edu.plohoy.spitter.domain.Message;
-import edu.plohoy.spitter.domain.User;
-import edu.plohoy.spitter.repos.MessageRepo;
-import edu.plohoy.spitter.utils.ControllerUtils;
+import edu.plohoy.colosseum.domain.Message;
+import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.repos.MessageRepo;
+import edu.plohoy.colosseum.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
