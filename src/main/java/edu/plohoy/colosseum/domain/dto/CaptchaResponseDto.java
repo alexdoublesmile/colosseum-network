@@ -12,7 +12,7 @@ public class CaptchaResponseDto {
     @JsonAlias("error-codes")
     private Set<String> errorCodes;
 
-    public boolean getSuccess() {
+    public boolean isSuccess() {
         return success;
     }
 

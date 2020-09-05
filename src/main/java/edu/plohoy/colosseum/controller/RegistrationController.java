@@ -1,6 +1,7 @@
 package edu.plohoy.colosseum.controller;
 
 import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.domain.dto.CaptchaResponseDto;
 import edu.plohoy.colosseum.service.UserService;
 import edu.plohoy.colosseum.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
+import java.util.Collections;
 
 @Controller
 public class RegistrationController {
@@ -40,8 +42,6 @@ public class RegistrationController {
             @RequestParam("password2") String passwordConfirm,
             @RequestParam("g-recaptcha-response") String captchaResponse,
             @Valid User user, BindingResult bindingResult, Model model) {
-
-        String captchaUrl = String.format(CAPTCHA_URL, secret, captchaResponse);
 
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
         if (isConfirmEmpty) {
