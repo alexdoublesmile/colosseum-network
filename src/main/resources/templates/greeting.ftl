@@ -1,6 +1,6 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-    <h5>Hello, guest</h5>
-    <div>This is The Colosseum.</div>
+    <h5>Wellcome, guest</h5>
+    <div>This is the Colosseum.</div>
 </@c.page>
