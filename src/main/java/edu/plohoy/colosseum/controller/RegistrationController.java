@@ -43,6 +43,16 @@ public class RegistrationController {
             @RequestParam("g-recaptcha-response") String captchaResponse,
             @Valid User user, BindingResult bindingResult, Model model) {
 
+        CaptchaResponseDto captchaFinalResponse = restTemplate.postForObject(
+                String.format(CAPTCHA_URL, secret, captchaResponse),
+                Collections.emptyList(),
+                CaptchaResponseDto.class
+        );
+
+        if (!captchaFinalResponse.isSuccess()) {
+            model.addAttribute("captchaError", "Fill captcha!");
+        }
+
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
         if (isConfirmEmpty) {
             model.addAttribute("password2Error", "Password confirmation can't be empty");
@@ -53,7 +63,7 @@ public class RegistrationController {
             return "registration";
         }
 
-        if (bindingResult.hasErrors() || isConfirmEmpty) {
+        if (bindingResult.hasErrors() || isConfirmEmpty || !captchaFinalResponse.isSuccess()) {
             model.mergeAttributes(ControllerUtils.getErrors(bindingResult));
             return "registration";
         }
