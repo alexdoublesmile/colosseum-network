@@ -81,7 +81,7 @@ public class RegistrationController {
         boolean isActivated = service.activateUser(code);
 
         if (isActivated) {
-            model.addAttribute("message", "User was successfully activated");
+            model.addAttribute("message", "You was successfully activated");
             model.addAttribute("messageType", "success");
         } else {
             model.addAttribute("message", "Activation code is not found!");
