@@ -46,4 +46,12 @@ public class MainControllerTest {
                 .andExpect(authenticated())
                 .andExpect(xpath("//div[@id='message-list']/div").nodeCount(4));
     }
+
+    @Test
+    public void filterMessageTest() throws Exception {
+        mockMvc.perform(get("/main").param("filter", "my-tag"))
+                .andDo(print())
+                .andExpect(authenticated())
+                .andExpect(xpath("//div[@id='message-list']/div").nodeCount(2));
+    }
 }
