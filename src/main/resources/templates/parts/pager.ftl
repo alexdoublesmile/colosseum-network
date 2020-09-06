@@ -1,5 +1,5 @@
 <#macro pager url page>
-    <div>
+    <div class="mt-3">
         <ul class="pagination">
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Pages</a>
@@ -16,6 +16,7 @@
                 </#list>
             </li>
         </ul>
+
         <ul class="pagination">
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Elements on the page</a>
