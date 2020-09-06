@@ -24,10 +24,16 @@ public class LoginTest {
     private MockMvc mockMvc;
 
     @Test
-    public void test() throws Exception {
+    public void contextLoad() throws Exception {
         mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Welcome, guest")));
+                .andExpect(content().string(containsString("Welcome, guest")))
+                .andExpect(content().string(containsString("Please, log in system")));
+    }
+
+    @Test
+    public void loginTest() throws Exception {
+        
     }
 }
