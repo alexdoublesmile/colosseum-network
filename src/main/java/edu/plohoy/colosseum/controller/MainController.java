@@ -99,7 +99,7 @@ public class MainController {
             @PathVariable User user,
             Model model
     ) {
-        Set<Message> messages = currentUser.getMessages();
+        Set<Message> messages = user.getMessages();
 
         model.addAttribute("messages", messages);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
