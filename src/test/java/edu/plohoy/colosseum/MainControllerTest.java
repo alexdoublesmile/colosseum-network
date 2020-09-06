@@ -52,6 +52,8 @@ public class MainControllerTest {
         mockMvc.perform(get("/main").param("filter", "my-tag"))
                 .andDo(print())
                 .andExpect(authenticated())
-                .andExpect(xpath("//div[@id='message-list']/div").nodeCount(2));
+                .andExpect(xpath("//div[@id='message-list']/div").nodeCount(2))
+                .andExpect(xpath("//div[@id='message-list']/div[@data-id=1]").exists())
+                .andExpect(xpath("//div[@id='message-list']/div[@data-id=3]").exists());
     }
 }
