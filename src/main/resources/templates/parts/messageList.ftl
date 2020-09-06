@@ -2,6 +2,7 @@
 <#import "pager.ftl" as p>
 
 <@p.pager url page />
+
 <div class="cards-columns" id="message-list">
     <#list page.content as message>
         <div class="card my-3" data-id="${message.id}">
@@ -14,7 +15,7 @@
                 <i>#${message.tag}</i>
             </div>
             <div class="card-footer text-muted">
-                <a href="/user-messages/${message.author.id}"><strong>${(message.author.username)}</strong></a>
+                <a href="/user-messages/${message.author.id}">${(message.author.username)}</a>
                 <#if message.author.id == currentUserId>
                     <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
                         Edit
