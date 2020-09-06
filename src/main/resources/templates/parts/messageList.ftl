@@ -6,10 +6,11 @@
             </#if>
             <div class="m-2">
                 <span>${message.text}</span>
-                <i>${message.tag}</i>
+                <br/>
+                <i>#${message.tag}</i>
             </div>
             <div class="card-footer text-muted">
-                <strong>${(message.author.username)!"&lt;none&gt;"}</strong>
+                <a href="/user-messages/${message.author.id}"><strong>${(message.author.username)!"&lt;none&gt;"}</strong></a>
             </div>
         </div>
     <#else>
