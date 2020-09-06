@@ -10,7 +10,8 @@
                 <i>#${message.tag}</i>
             </div>
             <div class="card-footer text-muted">
-                <a href="/user-messages/${message.author.id}"><strong>${(message.author.username)!"&lt;none&gt;"}</strong></a>
+                <a href="/user-messages/${message.author.id}"><strong>${(message.author.username)}</strong></a>
+                
             </div>
         </div>
     <#else>
