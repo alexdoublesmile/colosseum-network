@@ -129,7 +129,7 @@ public class UserService implements UserDetailsService {
 
     public void subscribe(User currentUser, User user) {
         user.getSubscribers().add(currentUser);
-        
+
         userRepo.save(user);
     }
 
