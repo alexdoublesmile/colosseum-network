@@ -22,8 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithUserDetails("admin")
 @TestPropertySource("/application-test.properties")
-@Sql(value = {"/create-user-before.sql", "/message-list-before.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-@Sql(value = {"/message-list-after.sql", "/create-user-after.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@Sql(value = {"/create-user-before.sql", "/messages-list-before.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(value = {"/messages-list-after.sql", "/create-user-after.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class MainControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -37,13 +37,5 @@ public class MainControllerTest {
                 .andDo(print())
                 .andExpect(authenticated())
                 .andExpect(xpath("//div[@id='navbarSupportedContent']/div").string("admin"));
-    }
-
-    @Test
-    public void messageListTest() throws Exception {
-        mockMvc.perform(get("/main"))
-                .andDo(print())
-                .andExpect(authenticated())
-                .andExpect(xpath("").nodeCount(0));
     }
 }
