@@ -109,6 +109,8 @@ public class MainController {
         Set<Message> messages = user.getMessages();
 
         model.addAttribute("userChannel", user);
+        model.addAttribute("subscriptionsCount", user.getSubscriptions());
+        model.addAttribute("subscribersCount", user.getSubscribers());
         model.addAttribute("messages", messages);
         model.addAttribute("message", message);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
