@@ -12,6 +12,5 @@
     <#assign
         name = "unknown"
         isAdmin = false
-        currentUserId = -1
     >
 </#if>
