@@ -25,4 +25,12 @@ public class MainControllerTest {
 
     @Autowired
     private MainController controller;
+
+    @Test
+    public void mainPageTest() throws Exception {
+        mockMvc.perform(get("/main"))
+                .andDo(print())
+                .andExpect(authenticated())
+                .andExpect(xpath("//div[@id='navbarSupportedContent']/div").string("admin"));
+    }
 }
