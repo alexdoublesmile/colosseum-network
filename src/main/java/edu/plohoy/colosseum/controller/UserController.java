@@ -64,4 +64,26 @@ public class UserController {
         service.updateUser(user, password, email);
         return "redirect:/user/profile";
     }
+
+    @GetMapping("/subscribe/{user}")
+    public String subscribe(
+            @AuthenticationPrincipal User currentUser,
+            @PathVariable User user
+
+    ) {
+        service.subscribe(currentUser, user);
+
+        return "redirect:/user-messages" + user.getId();
+    }
+
+    @GetMapping("/unsubscribe/{user}")
+    public String unsubscribe(
+            @AuthenticationPrincipal User currentUser,
+            @PathVariable User user
+
+    ) {
+        service.unsubscribe(currentUser, user);
+
+        return "redirect:/user-messages" + user.getId();
+    }
 }
