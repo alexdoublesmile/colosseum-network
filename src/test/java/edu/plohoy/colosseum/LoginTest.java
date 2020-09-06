@@ -23,7 +23,7 @@ public class LoginTest {
     private MockMvc mockMvc;
 
     @Test
-    public void contextLoad() throws Exception {
+    public void contextLoadTest() throws Exception {
         mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -32,10 +32,15 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTest() throws Exception {
+    public void accessDeniedTest() throws Exception {
         mockMvc.perform(get("/main"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
+    }
+
+    @Test
+    public void correctLoginTest() {
+        
     }
 }
