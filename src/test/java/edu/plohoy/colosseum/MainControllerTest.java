@@ -38,4 +38,12 @@ public class MainControllerTest {
                 .andExpect(authenticated())
                 .andExpect(xpath("//div[@id='navbarSupportedContent']/div").string("admin"));
     }
+
+    @Test
+    public void messageListTest() throws Exception {
+        mockMvc.perform(get("/main"))
+                .andDo(print())
+                .andExpect(authenticated())
+                .andExpect(xpath("//div[@id='message-list']/div").nodeCount(4));
+    }
 }
