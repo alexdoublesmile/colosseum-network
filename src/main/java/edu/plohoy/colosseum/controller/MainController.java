@@ -52,6 +52,7 @@ public class MainController {
         if (filter != null && !filter.isEmpty()) {
             page = messageRepo.findByTag(filter, pageable);
         } else {
+
             page = messageRepo.findAll(pageable);
         }
 
