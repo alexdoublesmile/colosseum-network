@@ -6,7 +6,6 @@
 <div class="collapse <#if message??>show</#if>" id="collapseExample">
     <div class="form-group mt-3">
         <form method="post" enctype="multipart/form-data">
-
             <div class="form-group">
                 <input type="text" name="text"
                        class="form-control ${(textError??)?string('is-invalid', '')}"
@@ -23,7 +22,7 @@
                 <input type="text" name="tag"
                        class="form-control ${(tagError??)?string('is-invalid', '')}"
                        value="<#if message??>${message.tag}</#if>"
-                       placeholder="Тэг">
+                       placeholder="Тэг" />
                 <#if tagError??>
                     <div class="invalid-feedback">
                         ${tagError}
@@ -33,7 +32,7 @@
 
             <div class="form-group">
                 <div class="custom-file">
-                    <input type="file" name="file" id="customFile">
+                    <input type="file" name="file" id="customFile" />
                     <label class="custom-file-label" for="customFile">Choose File</label>
                 </div>
             </div>
@@ -43,7 +42,6 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
-
         </form>
     </div>
 </div>

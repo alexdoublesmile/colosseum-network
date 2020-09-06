@@ -31,13 +31,7 @@
                 </li>
             </#if>
         </ul>
-        <div class="navbar-text mr-3">
-            <#if (currentUserId < 0)??>
-                ${name}
-            <#else>
-                Please, log in system
-            </#if>
-        </div>
+        <div class="navbar-text mr-3"><#if (currentUserId < 0)??>${name}<#else>Please, log in system</#if></div>
         <@l.logout />
     </div>
 </nav>
