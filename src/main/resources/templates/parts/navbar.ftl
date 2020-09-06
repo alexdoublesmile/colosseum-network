@@ -15,9 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Messages</a>
             </li>
-            <#if (id > 0)??>
+            <#if (currentUserId > 0)??>
             <li class="nav-item">
-                <a class="nav-link" href="/user-messages/${id}">My Messages</a>
+                <a class="nav-link" href="/user-messages/${currentUserId}">My Messages</a>
             </li>
             </#if>
             <#if isAdmin>
@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/user">UserList</a>
                 </li>
             </#if>
-            <#if (id > 0)??>
+            <#if (currentUserId > 0)??>
                 <li class="nav-item">
                     <a class="nav-link" href="/user/profile">Profile</a>
                 </li>
