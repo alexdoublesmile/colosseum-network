@@ -56,6 +56,7 @@ public class MainController {
         }
 
         model.addAttribute("page", page);
+        model.addAttribute("url", "/main");
         model.addAttribute("filter", filter);
 
         return "main";
