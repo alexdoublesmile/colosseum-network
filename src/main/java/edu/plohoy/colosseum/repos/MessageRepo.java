@@ -14,5 +14,5 @@ public interface MessageRepo extends CrudRepository<Message, Long> {
     Page<Message> findAll(Pageable pageable);
 
     @Query("from Message m where m.author = :author")
-    Page<Message> findByUser(Pageable pageable, User currentUser, @Param("author") User author);
+    Page<Message> findByUser(Pageable pageable, @Param("author") User author);
 }
