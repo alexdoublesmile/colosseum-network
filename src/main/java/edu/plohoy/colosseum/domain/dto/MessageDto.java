@@ -49,4 +49,14 @@ public class MessageDto {
     public Boolean getMeLiked() {
         return meLiked;
     }
+
+    @Override
+    public String toString() {
+        return "MessageDto{" +
+                "id=" + id +
+                ", author=" + author +
+                ", likes=" + likes +
+                ", meLiked=" + meLiked +
+                '}';
+    }
 }
