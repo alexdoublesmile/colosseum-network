@@ -20,6 +20,14 @@
                        href="/user-messages/${message.author.id}">
                         ${(message.author.username)}
                     </a>
+                    <a class="row align-self-center"
+                       href="#">
+                       <#if true>
+                           <i class="far fa-heart"></i>
+                       <#else>
+                           <i class="far fa-heart"></i>
+                       </#if>
+                    </a>
                     <#if message.author.id == currentUserId>
                         <a class="col btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
                             Edit
