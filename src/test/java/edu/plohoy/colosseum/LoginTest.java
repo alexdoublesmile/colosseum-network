@@ -1,6 +1,5 @@
 package edu.plohoy.colosseum;
 
-import edu.plohoy.colosseum.controller.MainController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
