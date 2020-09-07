@@ -26,4 +26,12 @@ public class MessageService {
     public Page<Message> getMessageListForUser(Pageable pageable, User currentUser, User author) {
         return dao.findByUser(pageable, currentUser, author);
     }
+
+    public void save(Message message) {
+        dao.save(message);
+    }
+
+    public Iterable<Message> findAll() {
+        return dao.findAll();
+    }
 }

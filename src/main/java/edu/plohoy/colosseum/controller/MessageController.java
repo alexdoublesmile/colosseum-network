@@ -75,11 +75,11 @@ public class MessageController {
             saveFile(message, file);
 
             model.addAttribute("message", null);
-            messageRepo.save(message);
+            service.save(message);
         }
 
 
-        Iterable<Message> messages = messageRepo.findAll();
+        Iterable<Message> messages = service.findAll();
 
         model.addAttribute("messages", messages);
 
@@ -128,7 +128,7 @@ public class MessageController {
 
             saveFile(message, file);
 
-            messageRepo.save(message);
+            service.save(message);
         }
 
         return "redirect:/user-messages/" + user;
