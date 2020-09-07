@@ -81,4 +81,12 @@ public class Message {
     public void setFilename(String filename) {
         this.filename = filename;
     }
+
+    public Set<User> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<User> likes) {
+        this.likes = likes;
+    }
 }
