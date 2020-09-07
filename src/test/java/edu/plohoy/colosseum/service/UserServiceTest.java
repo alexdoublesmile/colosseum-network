@@ -62,12 +62,20 @@ public class UserServiceTest {
         User user = new User();
         user.setUsername("John");
 
-        Mockito.doReturn(new User())
+        Mockito.doReturn(user)
                 .when(dao)
                 .findByUsername("John");
 
         boolean isUserCreated = service.addUser(user);
 
         Assert.assertFalse(isUserCreated);
+        Mockito.verify(dao, Mockito.times(0))
+                .save(ArgumentMatchers.any(User.class));
+        Mockito.verify(sender, Mockito.times(0))
+                .send(
+                        ArgumentMatchers.anyString(),
+                        ArgumentMatchers.anyString(),
+                        ArgumentMatchers.anyString()
+                );
     }
 }
