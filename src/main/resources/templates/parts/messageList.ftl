@@ -3,7 +3,7 @@
 
 <@p.pager url page />
 
-<div class="cards-columns" id="message-list">
+<div class="card-columns" id="message-list">
     <#list page.content as message>
         <div class="card my-3" data-id="${message.id}">
             <#if message.filename??>
