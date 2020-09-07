@@ -16,11 +16,11 @@
             </div>
             <div class="card-footer text-muted container">
                 <div class="row">
-                    <a class="row align-self-center"
+                    <a class="col align-self-center"
                        href="/user-messages/${message.author.id}">
                         ${(message.author.username)}
                     </a>
-                    <a class="row align-self-center"
+                    <a class="col align-self-center"
                        href="#">
                        <#if true>
                            <i class="far fa-heart"></i>
