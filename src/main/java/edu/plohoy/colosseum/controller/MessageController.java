@@ -87,7 +87,7 @@ public class MessageController {
         return "main";
     }
 
-    @GetMapping("/messages/{message}/likes")
+    @GetMapping("/messages/{message}/like")
     public String like(
             @AuthenticationPrincipal User currentUser,
             @PathVariable Message message,
