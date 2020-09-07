@@ -33,5 +33,27 @@ public class UserServiceTest {
     @MockBean
     private PasswordEncoder encoder;
 
-    
+    @Test
+    public void addUser() {
+        User user = new User();
+        user.setEmail("some@mail.ru");
+        boolean isUserCreated = service.addUser(user);
+
+        Assert.assertTrue(isUserCreated);
+        Assert.assertNotNull(user.getActivationCode());
+        Assert.assertTrue(
+                CoreMatchers
+                .is(user.getRoles())
+                .matches(Collections.singleton(Role.USER))
+        );
+
+        Mockito.verify(dao, Mockito.times(1))
+                .save(user);
+        Mockito.verify(sender, Mockito.times(1))
+                .send(
+                        ArgumentMatchers.eq(user.getEmail()),
+                        ArgumentMatchers.anyString(),
+                        ArgumentMatchers.anyString()
+                );
+    }
 }
