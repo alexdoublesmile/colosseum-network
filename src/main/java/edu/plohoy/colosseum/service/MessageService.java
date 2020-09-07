@@ -18,13 +18,13 @@ public class MessageService {
 
     @Autowired
     EntityManager em;
-    
-    public Page<Message> getMessageList(Pageable pageable, String filter) {
+
+    public Page<Message> getMessageList(Pageable pageable, String filter, User currentUser) {
         if (filter != null && !filter.isEmpty()) {
-            return dao.findByTag(filter, pageable);
+            return dao.findByTag(pageable, filter, currentUser);
 
         } else {
-            return dao.findAll(pageable);
+            return dao.findAll(pageable, currentUser);
         }
     }
 
