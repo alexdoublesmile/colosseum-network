@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MeesageService {
+public class MessageService {
 
     @Autowired
     private MessageRepo dao;
