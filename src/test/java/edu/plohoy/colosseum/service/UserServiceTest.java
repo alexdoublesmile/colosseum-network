@@ -78,4 +78,21 @@ public class UserServiceTest {
                         ArgumentMatchers.anyString()
                 );
     }
+
+    @Test
+    public void activateUser() {
+        User user = new User();
+        user.setActivationCode("test Activation Code");
+
+        Mockito.doReturn(user)
+                .when(dao)
+                .findByActivationCode("activate");
+
+        boolean isUserActivated = service.activateUser("activate");
+
+        Assert.assertTrue(isUserActivated);
+        Assert.assertNull(user.getActivationCode());
+        Mockito.verify(dao, Mockito.times(1))
+                .save(user);
+    }
 }
