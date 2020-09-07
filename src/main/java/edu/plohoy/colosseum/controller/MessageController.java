@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Controller
-public class MainController {
+public class MessageController {
     @Autowired
     private MessageRepo messageRepo;
 
