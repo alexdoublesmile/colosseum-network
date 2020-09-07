@@ -2,7 +2,6 @@ package edu.plohoy.colosseum.controller;
 
 import edu.plohoy.colosseum.domain.Message;
 import edu.plohoy.colosseum.domain.User;
-import edu.plohoy.colosseum.repos.MessageRepo;
 import edu.plohoy.colosseum.service.MessageService;
 import edu.plohoy.colosseum.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,6 @@ import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 @Controller
