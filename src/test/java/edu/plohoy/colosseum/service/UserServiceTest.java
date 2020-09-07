@@ -7,6 +7,8 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,7 +25,7 @@ public class UserServiceTest {
     private UserService service;
 
     @MockBean
-    private UserRepo repo;
+    private UserRepo dao;
 
     @MockBean
     private MailSender sender;
@@ -31,17 +33,5 @@ public class UserServiceTest {
     @MockBean
     private PasswordEncoder encoder;
 
-    @Test
-    public void addUser() {
-        User user = new User();
-        boolean isCreated = service.addUser(user);
-
-        Assert.assertTrue(isCreated);
-        Assert.assertNotNull(user.getActivationCode());
-        Assert.assertTrue(
-                CoreMatchers
-                .is(user.getRoles())
-                .matches(Collections.singleton(Role.USER))
-        );
-    }
+    
 }
