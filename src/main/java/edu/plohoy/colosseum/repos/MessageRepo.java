@@ -28,7 +28,7 @@ public interface MessageRepo extends CrudRepository<Message, Long> {
             "from Message m left join m.likes ml " +
             "where m.tag = :tag " +
             "group by m")
-    Page<MessageDto> findByTag(Pageable pageable, String filter, @Param("currentUser") User currentUser);
+    Page<MessageDto> findByTag(Pageable pageable, @Param("tag") String tag, @Param("currentUser") User currentUser);
 
     @Query("select new com.example.sweater.domain.dto.MessageDto(" +
             "   m, " +
