@@ -95,4 +95,13 @@ public class UserServiceTest {
         Mockito.verify(dao, Mockito.times(1))
                 .save(user);
     }
+
+    @Test
+    public void activateUserFail() {
+        boolean isUserActivated = service.activateUser("activate");
+
+        Assert.assertFalse(isUserActivated);
+        Mockito.verify(dao, Mockito.times(0))
+                .save(ArgumentMatchers.any(User.class));
+    }
 }
