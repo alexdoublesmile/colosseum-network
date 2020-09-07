@@ -56,4 +56,18 @@ public class UserServiceTest {
                         ArgumentMatchers.anyString()
                 );
     }
+
+    @Test
+    public void addUserFail() {
+        User user = new User();
+        user.setUsername("John");
+
+        Mockito.doReturn(new User())
+                .when(dao)
+                .findByUsername("John");
+
+        boolean isUserCreated = service.addUser(user);
+
+        Assert.assertFalse(isUserCreated);
+    }
 }
