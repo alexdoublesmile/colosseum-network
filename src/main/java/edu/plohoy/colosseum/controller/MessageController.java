@@ -50,12 +50,7 @@ public class MessageController {
     ) {
         Page<Message> page;
 
-        if (filter != null && !filter.isEmpty()) {
-            page = messageRepo.findByTag(filter, pageable);
-        } else {
 
-            page = messageRepo.findAll(pageable);
-        }
 
         model.addAttribute("page", page);
         model.addAttribute("url", "/main");

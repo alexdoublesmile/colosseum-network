@@ -13,8 +13,13 @@ public class MessageService {
     @Autowired
     private MessageRepo dao;
 
-    Page<Message> findByTag(String tag, Pageable pageable) {
-        return dao.findByTag(tag, pageable);
+    Page<Message> getMessageList(Pageable pageable, String filter) {
+        if (filter != null && !filter.isEmpty()) {
+            return dao.findByTag(filter, pageable);
+
+        } else {
+            return dao.findAll(pageable);
+        }
     }
 
     Page<Message> findAll(Pageable pageable) {
