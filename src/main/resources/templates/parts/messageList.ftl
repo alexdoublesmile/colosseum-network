@@ -21,7 +21,7 @@
                         ${(message.author.username)}
                     </a>
                     <a class="col align-self-center"
-                       href="#">
+                       href="/messages/{$message.id}/like">
                        <#if message.meLiked>
                            <i class="fas fa-heart"></i>
                        <#else>
@@ -30,7 +30,8 @@
                         ${message.likes}
                     </a>
                     <#if message.author.id == currentUserId>
-                        <a class="col btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
+                        <a class="col btn btn-primary"
+                           href="/user-messages/${message.author.id}?message=${message.id}">
                             Edit
                         </a>
                     </#if>
