@@ -42,6 +42,7 @@ public class MessageController {
 
     @GetMapping("/main")
     public String main(
+            @AuthenticationPrincipal User currentUser,
             @RequestParam(required = false, defaultValue = "") String filter,
             Model model,
             @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
