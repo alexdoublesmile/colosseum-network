@@ -2,6 +2,7 @@ package edu.plohoy.colosseum.controller;
 
 import edu.plohoy.colosseum.domain.Message;
 import edu.plohoy.colosseum.domain.User;
+import edu.plohoy.colosseum.domain.dto.MessageDto;
 import edu.plohoy.colosseum.service.MessageService;
 import edu.plohoy.colosseum.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class MessageController {
             Model model,
             @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        Page<Message> page = service.getMessageList(pageable, filter, currentUser);
+        Page<MessageDto> page = service.getMessageList(pageable, filter, currentUser);
 
         model.addAttribute("page", page);
         model.addAttribute("url", "/main");
@@ -93,7 +94,7 @@ public class MessageController {
             @RequestParam(required = false) Message message,
             @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        Page<Message> messages = service.getMessageListForUser(pageable, currentUser, author);
+        Page<MessageDto> messages = service.getMessageListForUser(pageable, currentUser, author);
 
         model.addAttribute("userChannel", author);
         model.addAttribute("subscriptionsCount", author.getSubscriptions().size());
