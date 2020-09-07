@@ -21,7 +21,7 @@
                         ${(message.author.username)}
                     </a>
                     <a class="col align-self-center"
-                       href="/messages/{$message.id}/like">
+                       href="/messages/{$message.id}/likes">
                        <#if message.meLiked>
                            <i class="fas fa-heart"></i>
                        <#else>
