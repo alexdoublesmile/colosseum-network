@@ -16,9 +16,6 @@ public class MessageService {
     @Autowired
     private MessageRepo dao;
 
-    @Autowired
-    EntityManager em;
-
     public Page<Message> getMessageList(Pageable pageable, String filter, User currentUser) {
         if (filter != null && !filter.isEmpty()) {
             return dao.findByTag(pageable, filter, currentUser);
