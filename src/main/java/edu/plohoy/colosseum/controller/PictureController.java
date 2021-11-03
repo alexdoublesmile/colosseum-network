@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("qr")
+@RequestMapping("covid-cert/verify")
 public class PictureController {
 
-    @GetMapping("/plohoy_alexandr")
+    @GetMapping("/9910000037938419")
     public String myPicture() {
         return "plohoy_alexandr";
     }
 
-    @GetMapping("/plohaya_ekaterina")
+    @GetMapping("/9910000037938429")
     public String catherinePicture() {
         return "catherine";
     }
