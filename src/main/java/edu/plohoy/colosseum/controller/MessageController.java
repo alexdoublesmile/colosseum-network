@@ -47,7 +47,7 @@ public class MessageController {
             @AuthenticationPrincipal User currentUser,
             @RequestParam(required = false, defaultValue = "") String filter,
             Model model,
-            @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable
     ) {
         Page<MessageDto> page = service.getMessageList(pageable, filter, currentUser);
 
@@ -93,10 +93,10 @@ public class MessageController {
             @PathVariable Message message,
             RedirectAttributes redirectAttributes,
             @RequestHeader(required = false) String referer
-            ) {
+    ) {
         Set<User> likes = message.getLikes();
 
-        if(likes.contains(currentUser)) {
+        if (likes.contains(currentUser)) {
             likes.remove(currentUser);
         } else {
             likes.add(currentUser);
@@ -107,8 +107,8 @@ public class MessageController {
 
         components.getQueryParams()
                 .entrySet().forEach(
-                        pair -> redirectAttributes.addAttribute(
-                                pair.getKey(), pair.getValue()));
+                pair -> redirectAttributes.addAttribute(
+                        pair.getKey(), pair.getValue()));
         return "redirect:" + components.getPath();
     }
 
@@ -118,7 +118,7 @@ public class MessageController {
             @PathVariable User author,
             Model model,
             @RequestParam(required = false) Message message,
-            @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable
     ) {
         Page<MessageDto> messages = service.getMessageListForUser(pageable, currentUser, author);
 

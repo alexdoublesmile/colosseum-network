@@ -10,7 +10,7 @@
                 <input type="text" name="text"
                        class="form-control ${(textError??)?string('is-invalid', '')}"
                        value="<#if message??>${message.text}</#if>"
-                       placeholder="Введите сообщение" />
+                       placeholder="Введите сообщение"/>
                 <#if textError??>
                     <div class="invalid-feedback">
                         ${textError}
@@ -22,7 +22,7 @@
                 <input type="text" name="tag"
                        class="form-control ${(tagError??)?string('is-invalid', '')}"
                        value="<#if message??>${message.tag}</#if>"
-                       placeholder="Тэг" />
+                       placeholder="Тэг"/>
                 <#if tagError??>
                     <div class="invalid-feedback">
                         ${tagError}
@@ -32,13 +32,13 @@
 
             <div class="form-group">
                 <div class="custom-file">
-                    <input type="file" name="file" id="customFile" />
+                    <input type="file" name="file" id="customFile"/>
                     <label class="custom-file-label" for="customFile">Choose File</label>
                 </div>
             </div>
 
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <input type="hidden" name="id" value="<#if message??>${message.id}</#if>" />
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+            <input type="hidden" name="id" value="<#if message??>${message.id}</#if>"/>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

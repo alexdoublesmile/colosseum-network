@@ -22,7 +22,7 @@ import java.util.Collections;
 @Controller
 public class RegistrationController {
     private static final String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
-    
+
     @Autowired
     private UserService service;
 

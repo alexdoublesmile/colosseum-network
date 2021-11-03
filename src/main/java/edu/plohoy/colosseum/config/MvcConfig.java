@@ -17,7 +17,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Bean
     public RestTemplate getRestTemplate() {
-        return  new RestTemplate();
+        return new RestTemplate();
     }
 
     public void addViewControllers(ViewControllerRegistry registry) {

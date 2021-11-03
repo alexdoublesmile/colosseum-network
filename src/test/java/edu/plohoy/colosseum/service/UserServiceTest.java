@@ -16,9 +16,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Collections;
+import java.util.Scanner;
+import java.util.UUID;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class UserServiceTest {
 
     @Autowired
@@ -43,8 +45,8 @@ public class UserServiceTest {
         Assert.assertNotNull(user.getActivationCode());
         Assert.assertTrue(
                 CoreMatchers
-                .is(user.getRoles())
-                .matches(Collections.singleton(Role.USER))
+                        .is(user.getRoles())
+                        .matches(Collections.singleton(Role.USER))
         );
 
         Mockito.verify(dao, Mockito.times(1))
@@ -104,4 +106,9 @@ public class UserServiceTest {
         Mockito.verify(dao, Mockito.times(0))
                 .save(ArgumentMatchers.any(User.class));
     }
+
+    @Test
+    public void anyTest() {
+    }
+
 }
