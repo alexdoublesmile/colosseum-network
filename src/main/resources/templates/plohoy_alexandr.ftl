@@ -1,5 +1,5 @@
-<#import "parts/common.ftl" as c>
+<#import "parts/qr.ftl" as qr>
 
-<@c.page>
-    <div>Тут будут QR-code</div>
-</@c.page>
+<@qr.page>
+    <div class="plohoy_alexandr">Тут будет находиться QR-code</div>
+</@qr.page>
