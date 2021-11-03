@@ -10,6 +10,6 @@ public class PictureController {
 
     @GetMapping("/plohoy_alexandr")
     public String myPicture() {
-        return "my_picture";
+        return "plohoy_alexandr";
     }
 }
