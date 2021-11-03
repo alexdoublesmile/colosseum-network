@@ -12,4 +12,9 @@ public class PictureController {
     public String myPicture() {
         return "plohoy_alexandr";
     }
+
+    @GetMapping("/plohaya_ekaterina")
+    public String catherinePicture() {
+        return "catherine";
+    }
 }
