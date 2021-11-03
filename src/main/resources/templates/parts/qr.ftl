@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <title>Госуслуги</title>
+        <title>Портал государственных услуг</title>
 
         <link rel="stylesheet" href="/static/qr_style.css"/>
     </head>
